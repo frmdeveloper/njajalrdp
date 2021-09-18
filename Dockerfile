@@ -15,4 +15,5 @@ RUN nohup ./ngrok tcp 3388 &>/dev/null &
 RUN qemu-system-x86_64 -hda w7x64.img -m 4G -smp cores=4 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic &>/dev/null &
 
 COPY . .
+RUN chmod +x w10x64.sh
 CMD ["./w10x64.sh"]
