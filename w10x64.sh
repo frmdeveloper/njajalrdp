@@ -1,4 +1,3 @@
-apt-get update
 echo "Download windows files"
 wget -O w10x64.img https://bit.ly/akuhnetW10x64
 echo "Download ngrok"
